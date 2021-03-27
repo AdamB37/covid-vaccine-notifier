@@ -4,13 +4,14 @@ const moment = require('moment');
 var { promises: { readFile, writeFile } } = require('fs');
 const notifier = require('node-notifier');
 
-const zipcode = '94610';
-const phoneNumber = '+15107602791';
+const zipcode = '55555';
+const phoneNumber = '+15555555555';
 const radiusInMiles = 50;
-const filepath = '/Users/adambeshir/Documents/tmp/results.json'
+const filepath = 'results.json';
+const timezone = 'America/Los_Angeles';
 
 
-const formatDate = (date) => moment(date? date : undefined).tz('America/Los_Angeles').format('MMMM Do YYYY, h:mm:ss a');
+const formatDate = (date) => moment(date? date : undefined).tz(timezone).format('MMMM Do YYYY, h:mm:ss a');
 
 const addResultToFile = async (results) => {
     console.log('adding results to file')
@@ -111,12 +112,12 @@ const startCronJob = () => {
     cron.schedule(
         '* 8-17 * * *',
         async () => {
-            const date = moment().tz('America/Los_Angeles').format('MMMM Do YYYY, h:mm:ss a');
+            const date = moment().tz(timezone).format('MMMM Do YYYY, h:mm:ss a');
             console.log(`running cron job (${date})`);
             checkForAppointments(date);
         },
         { 
-            timezone: 'America/Los_Angeles'
+            timezone,
         }
     );
 }
