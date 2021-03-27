@@ -5,7 +5,6 @@ var { promises: { readFile, writeFile } } = require('fs');
 const notifier = require('node-notifier');
 
 const zipcode = '55555';
-const phoneNumber = '+15555555555';
 const radiusInMiles = 50;
 const filepath = 'results.json';
 const timezone = 'America/Los_Angeles';
