@@ -86,8 +86,7 @@ const checkForAppointments = async (date = formatDate()) => {
         const filteredResults = json.results
             .filter(({ appointments, appointmentsUpdated, medNames }) => (
                     appointments && 
-                    moment().diff(moment(appointmentsUpdated), 'minutes') <= 2 &&
-                    Object.values(medNames).some(val => val)
+                    moment().diff(moment(appointmentsUpdated), 'minutes') <= 2
                 )
             );
 
@@ -116,7 +115,7 @@ const startCronJob = () => {
             console.log(`running cron job (${date})`);
             checkForAppointments(date);
         },
-        { 
+        {
             timezone,
         }
     );
@@ -124,4 +123,3 @@ const startCronJob = () => {
 
 checkForAppointments();
 startCronJob();
-
