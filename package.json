@@ -1,4 +1,12 @@
 {
+  "name": "covid-vaccine-notifier",
+  "version": "1.0.0",
+  "description": "cli notifier for covid vaccines in the area",
+  "main": "covidCron.js",
+  "private": false,
+  "scripts": {
+    "start": "node covidCron.js"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "moment": "^2.29.1",
