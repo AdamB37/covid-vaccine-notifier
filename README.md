@@ -1,7 +1,7 @@
 ### Prerequisites
-- yarn
-- node
-- git
+- `yarn`
+- `node`
+- `git`
 
 ### Before starting
 - open covidCron.js
